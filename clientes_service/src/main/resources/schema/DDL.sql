@@ -3,7 +3,7 @@ CREATE TABLE unidades_organizacionales(
     id_unidad INT GENERATED ALWAYS AS IDENTITY,
     id_unidad_padre INT,
     area VARCHAR(100),
-    tipo VARCHAR(50)
+    tipo_area VARCHAR(50)
 );
 
 -- Llaves primarias y foraneas
@@ -13,7 +13,7 @@ ALTER TABLE unidades_organizacionales ADD CONSTRAINT fk_unidades_padre FOREIGN K
 -- No nulos
 ALTER TABLE unidades_organizacionales ALTER COLUMN id_unidad SET NOT NULL;
 ALTER TABLE unidades_organizacionales ALTER COLUMN area SET NOT NULL;
-ALTER TABLE unidades_organizacionales ALTER COLUMN tipo SET NOT NULL;
+ALTER TABLE unidades_organizacionales ALTER COLUMN tipo_area SET NOT NULL;
 
 
 -- Tabla empleados
@@ -53,7 +53,7 @@ ALTER TABLE empleados ADD CONSTRAINT chk_rol CHECK ( rol IN ('DIRECTOR', 'GERENT
 
 
 -- Tabla contrasenas
-CREATE TABLE contrasenas(
+CREATE TABLE historial_contrasenas(
     id_contrasena INT GENERATED ALWAYS AS IDENTITY,
     id_empleado INT,
     contrasena VARCHAR(255),
@@ -62,12 +62,12 @@ CREATE TABLE contrasenas(
 );
 
 -- Llaves primarias y foraneas
-ALTER TABLE contrasenas ADD CONSTRAINT pk_contrasenas PRIMARY KEY(id_contrasena);
-ALTER TABLE contrasenas ADD CONSTRAINT fk_contrasenas_empleados FOREIGN KEY(id_empleado) REFERENCES empleados(id_empleado);
+ALTER TABLE historial_contrasenas ADD CONSTRAINT pk_contrasenas PRIMARY KEY(id_contrasena);
+ALTER TABLE historial_contrasenas ADD CONSTRAINT fk_contrasenas_empleados FOREIGN KEY(id_empleado) REFERENCES empleados(id_empleado);
 
 -- No nulos
-ALTER TABLE contrasenas ALTER COLUMN id_contrasena SET NOT NULL;
-ALTER TABLE contrasenas ALTER COLUMN id_empleado SET NOT NULL;
-ALTER TABLE contrasenas ALTER COLUMN contrasena SET NOT NULL;
-ALTER TABLE contrasenas ALTER COLUMN activa SET NOT NULL;
-ALTER TABLE contrasenas ALTER COLUMN fecha_creacion SET NOT NULL;
+ALTER TABLE historial_contrasenas ALTER COLUMN id_contrasena SET NOT NULL;
+ALTER TABLE historial_contrasenas ALTER COLUMN id_empleado SET NOT NULL;
+ALTER TABLE historial_contrasenas ALTER COLUMN contrasena SET NOT NULL;
+ALTER TABLE historial_contrasenas ALTER COLUMN activa SET NOT NULL;
+ALTER TABLE historial_contrasenas ALTER COLUMN fecha_creacion SET NOT NULL;

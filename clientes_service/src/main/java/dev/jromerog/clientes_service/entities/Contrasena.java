@@ -24,7 +24,6 @@ public class Contrasena {
     private Empleado empleado;
 
     @NotBlank
-    @Size(min = 8)
     private String contrasena;
 
     private boolean activa;

@@ -45,7 +45,6 @@ public class Empleado {
     @Enumerated(EnumType.STRING)
     private Rol rol;
 
-    @NotNull
     private boolean disponibilidad;
 
     private boolean activo;

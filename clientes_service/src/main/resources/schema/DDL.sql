@@ -1,6 +1,6 @@
 -- Tabla Areas
 CREATE TABLE unidades_organizacionales(
-    id_unidad INT GENERATED ALWAYS AS IDENTITY,
+    id_unidad SERIAL,
     id_unidad_padre INT,
     area VARCHAR(100),
     tipo_area VARCHAR(50)
@@ -18,7 +18,7 @@ ALTER TABLE unidades_organizacionales ALTER COLUMN tipo_area SET NOT NULL;
 
 -- Tabla empleados
 CREATE TABLE empleados(
-    id_empleado INT GENERATED ALWAYS AS IDENTITY,
+    id_empleado SERIAL,
     id_unidad INT,
     id_jefe INT,
     nombre VARCHAR(100),
@@ -54,7 +54,7 @@ ALTER TABLE empleados ADD CONSTRAINT chk_rol CHECK ( rol IN ('DIRECTOR', 'GERENT
 
 -- Tabla contrasenas
 CREATE TABLE historial_contrasenas(
-    id_contrasena INT GENERATED ALWAYS AS IDENTITY,
+    id_contrasena SERIAL,
     id_empleado INT,
     contrasena VARCHAR(255),
     activa BOOLEAN DEFAULT TRUE,

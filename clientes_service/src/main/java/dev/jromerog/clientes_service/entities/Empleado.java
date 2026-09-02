@@ -20,7 +20,7 @@ public class Empleado {
     @ManyToOne
     @JoinColumn(name = "id_unidad", nullable = false)
     @NotNull
-    private UnidadOrganizacional unidad;
+    private UnidadOrganizacional unidadOrganizacional;
 
     @ManyToOne
     @JoinColumn(name = "id_jefe", nullable = true)

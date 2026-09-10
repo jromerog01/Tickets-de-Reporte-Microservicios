@@ -34,3 +34,5 @@ build/
 
 ### Application Properties ###
 *.properties
+
+*.cmd

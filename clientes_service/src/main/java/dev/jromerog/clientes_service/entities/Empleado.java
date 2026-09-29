@@ -22,15 +22,15 @@ public class Empleado {
     @NotNull
     private UnidadOrganizacional unidadOrganizacional;
 
-    @ManyToOne
-    @JoinColumn(name = "id_jefe", nullable = true)
-    private Empleado jefe;
-
     @NotBlank
     private String nombre;
 
     @NotBlank
     private String apellido;
+
+    @ManyToOne
+    @JoinColumn(name = "id_jefe", nullable = true)
+    private Empleado jefe;
 
     @NotBlank
     @Column(unique = true)
@@ -48,10 +48,6 @@ public class Empleado {
     private boolean disponibilidad;
 
     private boolean activo;
-
-
-
-
 
 
 }
